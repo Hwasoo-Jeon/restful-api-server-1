@@ -1,0 +1,14 @@
+windows 개발 환경 셋팅
+1. NPM으로 express package를 설치후에 수동으로 코드를 작성하는 방법이 있지만 저는 express-generator를 사용하여 기본  템플릿을 만들어서 시작
+2. node command shell을 관리자로 실해
+--
+// express-generator를 설치
+npm install -g express-generator
+
+// 원하는 디렉토리에 apiserver 디렉토리 생성하고 기본 코드들을 자동으로 생성
+express --no-view apiserver
+
+// apiserver 디렉토리로 이동후 기본 패키지들을 설치
+$ cd apiserver
+$ npm install
+--
