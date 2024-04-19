@@ -6,6 +6,7 @@ import logger from "morgan"; //morgan 미들웨어를 불러옵니다. HTTP 요�
 import indexRouter from "./routes/index";
 import usersRouter from "./routes/users";
 import testRouter from "./routes/test";
+import tokenRouter from "./routes/token";
 
 const app = express();
 
@@ -34,5 +35,6 @@ app.set("views", path.join(__dirname, "public/views")); // view 파일들이 모
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/test", testRouter);
+app.use("/token", tokenRouter);
 
 export default app;
