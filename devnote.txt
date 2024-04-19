@@ -89,4 +89,12 @@ Apache : 트래픽이 많을 경우 이것 사용
 compression : 서버에서 클라이언트로 전송되는 HTTP  Reponse를 압축하는 데 사용할 수 있는 기본 제공 미들웨어
               gzip 또는 deflate 등의 알고리즘을 사용하여 응답 데이터 압축.
               직접 package.json에 추가(ex. "compression": "~1.7.4",)
+
+
+======================================
+view engine 추가
+
+npm i ejs (pug 도 있음 : html을 더욱 간략화하고, js 코드 사용 법이 다름)
+
+
               

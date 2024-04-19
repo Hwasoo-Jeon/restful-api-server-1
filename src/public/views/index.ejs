@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restful API Main Page</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <h1>Restful API Server Test</h1>
+    <p>hello <%=name %></p>
+    <div>
+      <h3>access token issue</h3>
+      <form method="get" action="<%=SUBMIT_URL %>">
+        <div>신원<input type="text" name="id" value="member" /></div>
+        <input type="submit" value="제출" />
+      </form>
+    </div>
+
+    <div>
+      <h3>응답 확인</h3>
+      <div></div>
+    </div>
+  </body>
+</html>
