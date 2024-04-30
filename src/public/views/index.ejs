@@ -11,7 +11,7 @@
         let submitUrl = `<%=SUBMIT_URL %>/${roleInput}`;
         console.log(roleInput);
         console.log(submitUrl);
-        fetch(roleInput)
+        fetch(submitUrl)
           .then((response) => response.json()) // 응답을 JSON으로 변환
           .then((data) => {
             console.log(data);

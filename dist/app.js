@@ -11,6 +11,7 @@ const morgan_1 = __importDefault(require("morgan")); //morgan 미들웨어를 �
 const index_1 = __importDefault(require("./routes/index"));
 const users_1 = __importDefault(require("./routes/users"));
 const test_1 = __importDefault(require("./routes/test"));
+const token_1 = __importDefault(require("./routes/token"));
 const app = (0, express_1.default)();
 //logger 설정
 morgan_1.default.token("date", function (req, res) {
@@ -30,4 +31,5 @@ app.set("views", path_1.default.join(__dirname, "public/views")); // view 파일
 app.use("/", index_1.default);
 app.use("/users", users_1.default);
 app.use("/test", test_1.default);
+app.use("/token", token_1.default);
 exports.default = app;

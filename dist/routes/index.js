@@ -11,7 +11,7 @@ router.get("/", (req, res, next) => {
     const { PUBLIC_URL } = process.env;
     res.render("index.ejs", {
         name: "방문자",
-        SUBMIT_URL: PUBLIC_URL,
+        SUBMIT_URL: `${PUBLIC_URL}/token/role`,
     });
 });
 router.post("/urlbody", (req, res, next) => {

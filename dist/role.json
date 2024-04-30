@@ -1,0 +1,12 @@
+{
+    "role": {
+        "super": 0,
+        "admin": 1,
+        "member": 2
+    },
+    "authorization": {
+        "super": ["GET", "POST", "PUT", "DELETE"],
+        "admin": ["GET", "POST"],
+        "member": ["GET"]
+    }
+}
