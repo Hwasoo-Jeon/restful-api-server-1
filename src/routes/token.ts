@@ -1,5 +1,7 @@
 import express, { NextFunction, Response, Request } from "express";
 import roleDataJson from "../role.json";
+import jwt from "jsonwebtoken";
+
 const router = express.Router();
 // roleData.json 파일의 구조에 맞춘 타입 정의
 interface RoleData {
@@ -30,6 +32,7 @@ interface RoleData {
 */
 
 const roleData: RoleData = roleDataJson;
+
 // const roleData = roleDataJson as {
 //   role: {
 //     [key: string]: string; // 인덱스 서명 추가
@@ -53,6 +56,41 @@ function getPermissionsForRole(inputRole: string): string[] | undefined {
     return undefined;
   }
 }
+
+// if (typeof process.env.SECRET_KEY === undefined) {
+//   throw new Error("SECRET_KEY is not defined in the environment variables.");
+// }
+// const secretKey = process.env.SECRET_KEY;
+
+// function generateAccessToken(role: string) {
+//   console.log(secretKey);
+//   const payload = { username: role };
+//   const token = jwt.sign(payload, secretKey);
+
+//   return token;
+// }
+
+router.get(
+  "/token/:role",
+  (req: Request, res: Response, next: NextFunction) => {
+    // 환경 변수를 사용하여 SUBMIT_URL 설정
+    const userRole = req.params.role as string; //pathVariable.. params 대신 query 작성하면 쿼리변수
+    const result = getPermissionsForRole(userRole);
+    console.log(userRole);
+    console.log(result);
+    if (result) {
+      // const result = generateAccessToken(userRole);
+      res.status(200).json({
+        result: result,
+      });
+    } else {
+      res.status(400).json({
+        code: 400,
+        message: "Invalid role",
+      });
+    }
+  }
+);
 
 router.get("/role/:role", (req: Request, res: Response, next: NextFunction) => {
   // 환경 변수를 사용하여 SUBMIT_URL 설정
